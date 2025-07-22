@@ -20,26 +20,6 @@ Este mini proyecto implementa el patrón de arquitectura MVC (Modelo-Vista-Contr
 ![Diagrama UML](DiagramaUML.png);
 ## pseudo código
 ```
-@startuml MVC
-title Diagrama de Arquitectura MVC - Registro de Estudiantes
-
-actor Usuario
-
-Usuario --> Vista : Interacción (Formulario)
-Vista --> Controlador : Envía datos del formulario
-Controlador --> Modelo : Procesa y actualiza datos
-Modelo --> Controlador : Devuelve datos o estado
-Controlador --> Vista : Muestra respuesta actualizada
-
-@enduml
-
-```
-
-### Diagrama de arquitectura MVC
-![Diagrama de arquitectura MVC](DiagramaMVC.png);
-
-## pseudo código
-```
 @startuml UML_Clases
 title Diagrama UML - Sistema Registro de Estudiantes
 
@@ -67,6 +47,52 @@ class Inscripcion {
 
 Estudiante "1" --> "0..*" Inscripcion
 Curso "1" --> "0..*" Inscripcion
+
+@enduml
+```
+
+### Diagrama de arquitectura MVC
+![Diagrama de arquitectura MVC](DiagramaMVC.png);
+
+## pseudo código
+```
+@startuml
+package "Vista" {
+  class FormularioEstudiante
+}
+
+package "Controlador" {
+  class EstudianteController
+}
+
+package "Modelo" {
+  class Estudiante
+  class Curso
+  class Inscripcion
+}
+
+FormularioEstudiante --> EstudianteController
+EstudianteController --> Estudiante
+EstudianteController --> Curso
+EstudianteController --> Inscripcion
+@enduml
+```
+
+### Diagrama de secuencia
+![Diagrama de secuencia](DiagramaSecuencia.png);
+
+## pseudo código
+```
+@startuml MVC
+title Diagrama de Arquitectura MVC - Registro de Estudiantes
+
+actor Usuario
+
+Usuario --> Vista : Interacción (Formulario)
+Vista --> Controlador : Envía datos del formulario
+Controlador --> Modelo : Procesa y actualiza datos
+Modelo --> Controlador : Devuelve datos o estado
+Controlador --> Vista : Muestra respuesta actualizada
 
 @enduml
 

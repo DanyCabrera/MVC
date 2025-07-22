@@ -32,7 +32,6 @@ class Inscripcion {
     }
 }
 
-// Definimos el array con tipo Estudiante[]
 let estudiantes: Estudiante[] = [];
 let cursos: Curso[] = [];
 let inscripciones: Inscripcion[] = [];
